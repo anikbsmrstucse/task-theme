@@ -86,3 +86,28 @@ header .row{
 #menu-bar ul li a:hover{
 	color: var(--primary-color);
 }
+
+/* Homepage design */
+div#area img{
+	width: 100% !important;
+    height: 100vh !important;
+}
+
+/* footer area design */
+.footer-color {
+	background-color: var(--secondary-color);
+}
+.footer-area {
+	font-size: 1.1rem;
+	font-weight: 500;
+	color: var(--white-color);
+	padding: 15px 0;
+}
+
+.footer-area .text {
+	text-align: center;
+}
+ 
+.footer-area p{
+	margin-bottom: 0;
+}

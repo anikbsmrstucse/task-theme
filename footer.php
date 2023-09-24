@@ -11,11 +11,11 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
+	<footer id="colophon" class="site-footer footer-color">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					
+			<div class="row footer-area">
+				<div class="col-md-12 text">
+					<p><?php echo get_theme_mod('footer_paragraph') ?></p>
 				</div>
 			</div>
 		</div>

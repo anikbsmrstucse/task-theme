@@ -62,7 +62,7 @@ function themetask_customize_preview_js() {
 add_action( 'customize_preview_init', 'themetask_customize_preview_js' );
 
 // add theme customizer register
-function theme_logo_change($wp_customize){
+function anik_customizer_register($wp_customize){
 	/** this code change logo from header area **/
 	$wp_customize->add_section('logo_header_area',array(
 		'title' => esc_html__('Header Area','tasktheme'),
@@ -77,7 +77,21 @@ function theme_logo_change($wp_customize){
 		'section' => 'logo_header_area',
 		'control' => 'anik_logo',
 	)));
+	/** this code change the footer area dynamically **/
+	$wp_customize->add_section('change_footer_area',array(
+		'title' => esc_html__('Footer Area','tasktheme'),
+		'description' => 'if you change your footer you can change your footer from here',
+	));
+	$wp_customize->add_setting('footer_paragraph',array(
+		'default' => '&copy; Copyright 2023 | Anik Themes BD',
+	));
+	$wp_customize->add_control('footer_paragraph',array(
+		'label' => 'Write your Footer',
+		'description' => 'if you change your footer you can change your footer area',
+		'section' => 'change_footer_area',
+		'setting' => 'footer_paragraph'
+	));
 }
 
-add_action('customize_register','theme_logo_change');
+add_action('customize_register','anik_customizer_register');
 
