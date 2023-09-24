@@ -111,3 +111,26 @@ div#area img{
 .footer-area p{
 	margin-bottom: 0;
 }
+
+/* hero image css */
+.hero-img {
+	position: relative;
+}
+
+.title{
+	position: absolute;
+	color: var(--white-color);
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 11;
+}
+.title h1{
+	font-size: 4rem;
+}
+
+@media screen and (max-width: 786px) {
+	.title h1{
+		font-size: 2rem;
+	}
+}

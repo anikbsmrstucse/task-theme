@@ -10,30 +10,7 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-/*function themetask_customize_register( $wp_customize ) {
-	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
-	if ( isset( $wp_customize->selective_refresh ) ) {
-		$wp_customize->selective_refresh->add_partial(
-			'blogname',
-			array(
-				'selector'        => '.site-title a',
-				'render_callback' => 'themetask_customize_partial_blogname',
-			)
-		);
-		$wp_customize->selective_refresh->add_partial(
-			'blogdescription',
-			array(
-				'selector'        => '.site-description',
-				'render_callback' => 'themetask_customize_partial_blogdescription',
-			)
-		);
-	}
-}
-add_action( 'customize_register', 'themetask_customize_register' );
-*/
 
 /**
  * Render the site title for the selective refresh partial.
@@ -77,6 +54,41 @@ function anik_customizer_register($wp_customize){
 		'section' => 'logo_header_area',
 		'control' => 'anik_logo',
 	)));
+	/**this code is using to change herobanner**/
+	$wp_customize->add_section('change_hero_image',array(
+		'title' => esc_html__('Change Hero Area','tasktheme'),
+		'description' => esc_html__('if you change your hero image , you can change your hero image from here','newtheme'),
+		'priority' => 160,
+		'capability' => 'edit_theme_options', 
+	));
+	$wp_customize->add_setting('anik_hero_image',array(
+		'default' => '',
+		'capability' => 'edit_theme_options',
+		'type' => 'theme_mod',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_text_field'
+	));
+	$wp_customize->add_control(new WP_Customize_Cropped_Image_Control($wp_customize,'anik_hero_image',array(
+		'label'  	=> __( 'Upload a Image', 'tasktheme' ),
+		'description' => 'Please Upload High Quality Image',
+		'section'    => 'change_hero_image',
+		'height'=> 1200, // cropper Height
+		'width'=> 1920, // Cropper Width
+		'flex_width'=>true, //Flexible Width
+		'flex_height'=>true, // Flexible Heiht
+	)));
+
+	/** hero title text functionality **/
+	$wp_customize->add_setting('hero_text',array(
+		'default' => 'Make a Blog',
+	));
+	$wp_customize->add_control('hero_text',array(
+		'label' => esc_html__('Change Your Hero Text'),
+		'description' => esc_html__('Please Write your text'),
+		'section' => 'change_hero_image',
+		'setting' => 'hero_text',
+	));
+
 	/** this code change the footer area dynamically **/
 	$wp_customize->add_section('change_footer_area',array(
 		'title' => esc_html__('Footer Area','tasktheme'),
