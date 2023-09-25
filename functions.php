@@ -94,35 +94,8 @@ function themetask_setup() {
 		)
 	);
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support(
-		'custom-background',
-		apply_filters(
-			'themetask_custom_background_args',
-			array(
-				'default-color' => 'ffffff',
-				'default-image' => '',
-			)
-		)
-	);
-
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
-
-	/**
-	 * Add support for core custom logo.
-	 *
-	 * @link https://codex.wordpress.org/Theme_Logo
-	 */
-	add_theme_support(
-		'custom-logo',
-		array(
-			'height'      => 250,
-			'width'       => 250,
-			'flex-width'  => true,
-			'flex-height' => true,
-		)
-	);
 }
 add_action( 'after_setup_theme', 'themetask_setup' );
 
@@ -137,6 +110,20 @@ function themetask_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'themetask_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'themetask_content_width', 0 );
+
+/** this Function use for read more button **/
+function anik_excerpt_more($more){
+	global $post;
+	return '<br> <br> <a href="'. get_permalink( $post->ID) .'" class="btn btn-danger">'.'Read More'.'</a>';
+}
+
+add_filter('excerpt_more','anik_excerpt_more',10);
+/** this is use for excerpt word length **/
+function anik_excerpt_length($length){
+	return 20;
+}
+
+add_filter('excerpt_length','anik_excerpt_length',20);
 
 /**
  * Register widget area.
@@ -157,6 +144,40 @@ function themetask_widgets_init() {
 	);
 }
 add_action( 'widgets_init', 'themetask_widgets_init' );
+
+/** Custom service post functionality **/
+function custom_post(){
+	register_post_type(
+		'custom_post',
+		array(
+			'labels' => array(
+			'name'=>esc_html__('Custom Post','tasktheme'),
+			'singular_name' => ('Custom Post'),
+			'add_new' => ('Add New Post'),
+			'add_new_item' => ('Add New Post'),
+			'edit_item' => ('Edit Post'),
+			'new_item' => ('New Post'),
+			'view_item' => ('View Post'),
+			'not found' => ('Sorry,We couldn\t find the service you looking for'),
+			),
+			'menu_icon' => 'dashicons-align-left',
+			'public' => true,
+			'publicly_queryable' => true,
+			'exclude_from_search' => true,
+			'menu_position' => 5,
+			'has_archive' => true,
+			'hierarchical' => true,
+			'show_ui' => true,
+			'capability_type' => 'post',
+			'rewrite' => array('slug' => 'custom_post'),
+			'supports' => array('title','thumbnail','editor','excerpt'),
+		),
+
+		add_theme_support('post-thumbnails'),
+	);
+}
+
+add_action('init','custom_post');
 
 /**
  * Enqueue scripts and styles.

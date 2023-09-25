@@ -103,6 +103,21 @@ function anik_customizer_register($wp_customize){
 		'section' => 'change_footer_area',
 		'setting' => 'footer_paragraph'
 	));
+	/** custom post heading title change functionality **/
+	$wp_customize->add_section('custom_post_header',array(
+		'title' => esc_html__('Custom Post Header','tasktheme'),
+		'description' => esc_html__('If you change your Custom Post Header, you can change your header from here'),
+	));
+	$wp_customize->add_setting('custom_header',array(
+		'default' => esc_html__('Latest Post','tasktheme')
+	));
+	$wp_customize->add_control('custom_header',array(
+		'label' => esc_html__('Write Your Text','tasktheme'),
+		'description' => esc_html__('If you change your Custom Post Header, you can change your header from here','tasktheme'),
+		'section' => 'custom_post_header',
+		'control' => 'custom_header',
+	));
+	
 }
 
 add_action('customize_register','anik_customizer_register');
