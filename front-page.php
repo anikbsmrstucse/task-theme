@@ -31,7 +31,7 @@ if (get_theme_mod('anik_hero_image', '') != '') {
         <div class="post-heading">
             <h3><?php echo get_theme_mod('custom_header'); ?></h3>
             <!-- post card details -->
-            <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+            <div class="row row-cols-1 row-cols-md-3 g-4 my-3">
                 <?php query_posts('post_type=custom_post&post_status=publish&post_per_page=6&order=ASC&paged=' . get_query_var('post'));
 
                 if (have_posts()) :
@@ -65,6 +65,11 @@ if (get_theme_mod('anik_hero_image', '') != '') {
                 <?php
                 endif;
                 ?>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <a class="btn btn-danger" href="<?php print home_url(); ?>/custom_post"><?php echo get_theme_mod('button_text') ?></a>
+                </div>
             </div>
         </div>
     </section>

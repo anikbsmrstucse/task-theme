@@ -134,3 +134,71 @@ div#area img{
 		font-size: 2rem;
 	}
 }
+
+/* content page style css */
+
+.meta-info ul{
+	padding-left: 0 !important;
+	margin-bottom: 0;
+}
+
+.meta-info ul li a{
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+
+.meta-info ul li a:hover{
+	color: var(--primary-color);
+}
+
+/* blog details */
+.single-blog-details:hover h3 a{
+	color: var(--primary-color);
+}
+.blog-details h3 a{
+	text-decoration: none !important;
+	transition: all 0.5s;
+}
+
+/* blog thumb */
+.blog-thumb img {
+	border-radius: 5px;
+	width: 100%;
+	overflow: hidden;
+}
+
+/* comment area */
+.comment-area form .comment-form-comment{
+	display: flex;
+	flex-direction: column;
+}
+.comment-area form .comment-form-comment p{
+	display: inline-block;
+}
+
+.comment-area form .comment-form-comment label{
+	font-size: 1.2rem;
+	font-weight: 500;
+}
+
+.comment-area form .comment-form-comment label .required{
+	color: red;
+}
+
+.comment-area form .comment-form-comment  textarea{
+	border: 2px solid var(--primary-color);
+	margin-top: 10px;
+	border-radius: 8px;
+	padding: 5px 10px;
+	height: 200px;
+	width: 100%;
+	resize: none;
+}
+
+.comment-area form .form-submit input[type="submit"]{
+	background-color: var(--primary-color);
+	color: var(--white-color);
+	padding: 5px 10px;
+	border-radius: 5px;
+}

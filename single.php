@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying all single posts
  *
@@ -10,31 +11,42 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<main id="primary" class="site-main">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+	
 
-			get_template_part( 'template-parts/content', get_post_type() );
+	<section id="body_area">
+		<div class="container">
+			<div class="row row-cols-md-1">
+				<div class="col">
+					<?php
+					if (have_posts()) :
+						/* Start the Loop */
+						while (have_posts()) :
+							the_post();
 
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'themetask' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'themetask' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
-			
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+							/*
+				 * Include the Post-Type-specific template for the content.
+				 * If you want to override this in a child theme, then include a file
+				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+				 */
+							get_template_part('template-parts/content', get_post_type());
 
-		endwhile; // End of the loop.
-		?>
+						endwhile;
+						wp_reset_postdata();
+						the_post_navigation();
+					else :
+						// this coding is the page is not found condition
+						get_template_part('template-parts/content', 'none');
 
-	</main><!-- #main -->
+					endif;
+					?>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

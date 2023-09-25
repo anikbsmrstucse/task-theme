@@ -117,6 +117,16 @@ function anik_customizer_register($wp_customize){
 		'section' => 'custom_post_header',
 		'control' => 'custom_header',
 	));
+	/** Button text edit functionality **/
+	$wp_customize->add_setting('button_text',array(
+		'default' => esc_html__('See All Post','tasktheme')
+	));
+	$wp_customize->add_control('button_text',array(
+		'label' => esc_html__('Write Your Text','tasktheme'),
+		'description' => esc_html__('If you change your Button text, you can change your Button text from here','tasktheme'),
+		'section' => 'custom_post_header',
+		'control' => 'button_text',
+	));
 	
 }
 

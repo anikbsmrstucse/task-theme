@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template part for displaying posts
  *
@@ -9,55 +10,64 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+<?php if (is_single()) : ?>
+    <!-- this is using for displaying single post details only -->
+    <div id="post-<?php the_ID(); ?>" class="blog-details-full">
+        <h4 class="mt-3"><?php wp_title() ?></h4>
+        <article class="single-blog-details my-5">
+            <div class="card shadow border-danger">
+                <!-- blog Content -->
+                <div class="blog-content">
+                    <!-- Meta Info -->
+                    <div class="meta-info d-flex flex-wrap align-items-center px-2">
+                        <ul>
+                            <li class="d-inline-block p-2"><span><i></i></span>Posted By <a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))) ?>"><?php the_author(); ?></a>
+                            </li>
+                            <li class="d-none d-md-inline-block p-2"><a href="#"><?php echo get_the_date('j M Y'); ?></a></li>
+                            <li class="d-inline-block p-2"><a href="#"><?php comments_number() ?></a></li>
+                        </ul>
+                    </div>
+                    <!-- blog thumb -->
+                    <div class="blog-thumb px-3">
+                        <?php the_post_thumbnail('post-thumbnails'); ?>
+                    </div>
+                    <!-- Blog details -->
+                    <div class="blog-details card-body">
+                        <h3 class="text-decoration-none"><a href="#"><?php the_title(); ?></a></h3>
+                        <p class="card-text"><?php the_content(); ?></p>
+                    </div>
+                    
+                </div>
+            </div>
 
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				themetask_posted_on();
-				themetask_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+            <div class="page-nav">
+                <?php
+                wp_link_pages(
+                    array(
+                        'before' => '<div class="page-links">' . esc_html__('Pages:', 'space'),
+                        'after'  => '</div>',
+                    )
+                );
+                ?>
+            </div>
+            <div class="comment-area mt-5">
+                <?php
+                // If comments are open or we have at least one comment, load up the comment template.
+                if (comments_open() || get_comments_number()) :
+                    comments_template();
+                endif;
+                ?>
+            </div>
 
-	<?php themetask_post_thumbnail(); ?>
+        </article>
 
-	<div class="entry-content">
-		<?php
-		the_content(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'themetask' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post( get_the_title() )
-			)
-		);
+    </div>
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'themetask' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
+<?php else : ?>
+    <!-- this code use for all blog post showing in blog page from index.php -->
+    <div>
+        <h1>Hello world</h1>
+    </div>
 
-	<footer class="entry-footer">
-		<?php themetask_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+
+<?php endif ?>

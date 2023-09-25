@@ -44,7 +44,7 @@ function themetask_setup() {
 		*
 		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		*/
-	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'post-thumbnails',array('post','page','service'));
 
 	// This theme uses wp_nav_menu() in one location.
 
@@ -187,6 +187,12 @@ function themetask_scripts() {
 	wp_enqueue_style( 'themetask-style', get_stylesheet_uri(), array(), _S_VERSION );
 	//wp_style_add_data( 'themetask-style', 'rtl', 'replace' );
 
+	/** font awosome icons enqueue **/
+	wp_enqueue_style('fontawosome','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css',false);
+
+	/** enqueue google font **/
+	wp_enqueue_style('themetask_rubik_goole_font','https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap',false);
+
 	/** enqueu bootstrap.min.css file **/
 	wp_register_style('bootstrap',get_template_directory_uri().'/assests/bootstrap/css/bootstrap.min.css',array(),'5.3.2','all');
 	wp_enqueue_style('bootstrap');
@@ -198,8 +204,7 @@ function themetask_scripts() {
 	/** enqueue bootstrap js file **/
 	wp_enqueue_script('bootstrap',get_template_directory_uri() . '/assests/bootstrap/js/bootstrap.min.js',array(),'5.3.2',true);
 
-	/** enqueue google font **/
-	wp_enqueue_style('themetask_rubik_goole_font','https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap',false);
+	
 
 
 	// if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
