@@ -56,23 +56,57 @@ function anik_customizer_register($wp_customize){
 	)));
 	/**this code is using to change herobanner**/
 	$wp_customize->add_section('change_hero_image',array(
-		'title' => esc_html__('Change Hero Area','tasktheme'),
+		'title' => esc_html__('Change Hero Area','themetask'),
 		'description' => esc_html__('if you change your hero image , you can change your hero image from here','newtheme'),
 		'priority' => 160,
 		'capability' => 'edit_theme_options', 
 	));
-	$wp_customize->add_setting('anik_hero_image',array(
+	$wp_customize->add_setting('anik_hero_image1',array(
 		'default' => '',
 		'capability' => 'edit_theme_options',
 		'type' => 'theme_mod',
 		'transport' => 'refresh',
 		'sanitize_callback' => 'sanitize_text_field'
 	));
-	$wp_customize->add_control(new WP_Customize_Cropped_Image_Control($wp_customize,'anik_hero_image',array(
-		'label'  	=> __( 'Upload a Image', 'tasktheme' ),
+	$wp_customize->add_control(new WP_Customize_Cropped_Image_Control($wp_customize,'anik_hero_image1',array(
+		'label'  	=> __( 'Upload First Image', 'tasktheme' ),
 		'description' => 'Please Upload High Quality Image',
 		'section'    => 'change_hero_image',
-		'height'=> 1200, // cropper Height
+		'height'=> 700, // cropper Height
+		'width'=> 1920, // Cropper Width
+		'flex_width'=>true, //Flexible Width
+		'flex_height'=>true, // Flexible Heiht
+	)));
+	/** second image upload functiontionality **/
+	$wp_customize->add_setting('anik_hero_image2',array(
+		'default' => '',
+		'capability' => 'edit_theme_options',
+		'type' => 'theme_mod',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_text_field'
+	));
+	$wp_customize->add_control(new WP_Customize_Cropped_Image_Control($wp_customize,'anik_hero_image2',array(
+		'label'  	=> __( 'Upload Second Image', 'themetask' ),
+		'description' => 'Please Upload High Quality Image',
+		'section'    => 'change_hero_image',
+		'height'=> 700, // cropper Height
+		'width'=> 1920, // Cropper Width
+		'flex_width'=>true, //Flexible Width
+		'flex_height'=>true, // Flexible Heiht
+	)));
+	/** third image upload functiontionality **/
+	$wp_customize->add_setting('anik_hero_image3',array(
+		'default' => '',
+		'capability' => 'edit_theme_options',
+		'type' => 'theme_mod',
+		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_text_field'
+	));
+	$wp_customize->add_control(new WP_Customize_Cropped_Image_Control($wp_customize,'anik_hero_image3',array(
+		'label'  	=> __( 'Upload Third Image', 'themetask' ),
+		'description' => 'Please Upload High Quality Image',
+		'section'    => 'change_hero_image',
+		'height'=> 700, // cropper Height
 		'width'=> 1920, // Cropper Width
 		'flex_width'=>true, //Flexible Width
 		'flex_height'=>true, // Flexible Heiht

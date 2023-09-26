@@ -10,9 +10,16 @@ get_header();
 <?php
 $image = esc_url('https://unsplash.com/photos/NhshpPh-gDc/download?ixid=M3wxMjA3fDB8MXx0b3BpY3x8NnNNVmpUTFNrZVF8fHx8fDJ8fDE2OTU1NTM2MjN8&force=true&w=1920');
 
-if (get_theme_mod('anik_hero_image', '') != '') {
-    $image1 = wp_get_attachment_url(get_theme_mod('anik_hero_image'));
+if (get_theme_mod('anik_hero_image1', '') != '') {
+    $image1 = wp_get_attachment_url(get_theme_mod('anik_hero_image1'));
 }
+if (get_theme_mod('anik_hero_image2', '') != '') {
+    $image2 = wp_get_attachment_url(get_theme_mod('anik_hero_image2'));
+}
+if (get_theme_mod('anik_hero_image3', '') != '') {
+    $image3 = wp_get_attachment_url(get_theme_mod('anik_hero_image3'));
+}
+
 
 ?>
 <!-- this is body area for home page -->
@@ -28,7 +35,13 @@ if (get_theme_mod('anik_hero_image', '') != '') {
                     </div>
                 </div>
                 <div>
-                    <img class="img-fluid rounded" src="<?php echo $image1; ?>" alt="">
+                    <img class="img-fluid rounded" src="<?php echo $image2; ?>" alt="">
+                    <div class="title">
+                        <h1><?php echo get_theme_mod('hero_text'); ?></h1>
+                    </div>
+                </div>
+                <div>
+                    <img class="img-fluid rounded" src="<?php echo $image3; ?>" alt="">
                     <div class="title">
                         <h1><?php echo get_theme_mod('hero_text'); ?></h1>
                     </div>
