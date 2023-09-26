@@ -31,19 +31,19 @@ if (get_theme_mod('anik_hero_image3', '') != '') {
                 <div>
                     <img class="img-fluid rounded" src="<?php echo $image1; ?>" alt="">
                     <div class="title">
-                        <h1><?php echo get_theme_mod('hero_text'); ?></h1>
+                        <h1><?php echo get_theme_mod('hero_text1'); ?></h1>
                     </div>
                 </div>
                 <div>
                     <img class="img-fluid rounded" src="<?php echo $image2; ?>" alt="">
                     <div class="title">
-                        <h1><?php echo get_theme_mod('hero_text'); ?></h1>
+                        <h1><?php echo get_theme_mod('hero_text2'); ?></h1>
                     </div>
                 </div>
                 <div>
                     <img class="img-fluid rounded" src="<?php echo $image3; ?>" alt="">
                     <div class="title">
-                        <h1><?php echo get_theme_mod('hero_text'); ?></h1>
+                        <h1><?php echo get_theme_mod('hero_text3'); ?></h1>
                     </div>
                 </div>
             </div>

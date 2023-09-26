@@ -113,11 +113,29 @@ function anik_customizer_register($wp_customize){
 	)));
 
 	/** hero title text functionality **/
-	$wp_customize->add_setting('hero_text',array(
-		'default' => 'Make a Blog',
+	$wp_customize->add_setting('hero_text1',array(
+		'default' => 'Write Your First Slug',
 	));
-	$wp_customize->add_control('hero_text',array(
-		'label' => esc_html__('Change Your Hero Text'),
+	$wp_customize->add_control('hero_text1',array(
+		'label' => esc_html__('Change Your First Hero Text','themetask'),
+		'description' => esc_html__('Please Write your text'),
+		'section' => 'change_hero_image',
+		'setting' => 'hero_text',
+	));
+	$wp_customize->add_setting('hero_text2',array(
+		'default' => 'Write Your Second Slug',
+	));
+	$wp_customize->add_control('hero_text2',array(
+		'label' => esc_html__('Change Your Second Hero Text','themetask'),
+		'description' => esc_html__('Please Write your text'),
+		'section' => 'change_hero_image',
+		'setting' => 'hero_text',
+	));
+	$wp_customize->add_setting('hero_text3',array(
+		'default' => 'Write Your Third Slug',
+	));
+	$wp_customize->add_control('hero_text3',array(
+		'label' => esc_html__('Change Your Third Hero Text','themetask'),
 		'description' => esc_html__('Please Write your text'),
 		'section' => 'change_hero_image',
 		'setting' => 'hero_text',
