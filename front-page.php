@@ -50,7 +50,7 @@ if (get_theme_mod('anik_hero_image3', '') != '') {
         </div>
     </section>
     <!-- this area using for showing custom post-->
-    <section class="post-area container my-5">
+    <section class="post-area container p-0 my-5">
         <div class="post-heading">
             <h3><?php echo get_theme_mod('custom_header'); ?></h3>
             <!-- post card details -->
@@ -96,6 +96,48 @@ if (get_theme_mod('anik_hero_image3', '') != '') {
             </div>
         </div>
     </section>
+    <!-- this area using for displaying learn more about us -->
+    <section class="container about my-4">
+        <!-- about area section -->
+        <div class="row about-us">
+            <div class="col-md-6 p-0">
+
+            </div>
+            <div class="col-md-6">
+                <div class="about-area">
+                    <h3>Learn More About Us</h3>
+                    <div class="hr my-3">
+
+                    </div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum consequuntur rerum, odio optio deleniti quas unde consectetur non? Quis architecto nam quia at laudantium consequatur officiis ex harum sapiente sequi!</p>
+                    <button>Let's Start <span><i class="fa-solid fa-arrow-right"></i></span> </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get In touch -->
+    <section class="container my-5 py-5">
+        <div id="touch-area" class="row">
+            <div class="col-md-4 p-0 <?php echo get_theme_mod('anik_touch_alignment') ?>">
+                <div class="about-area touch-section">
+                    <h2>We Love to hear from you</h2>
+                    <div class="hr my-3">
+
+                    </div>
+                    <p class="mt-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum consequuntur rerum, odio optio deleniti quas unde consectetur non? Quis architecto nam quia at laudantium consequatur officiis ex harum sapiente sequi!</p>
+                    <button class="mt-4">Get In Touch <span><i class="fa-solid fa-arrow-right"></i></span> </button>
+                </div>
+            </div>
+            <div class="col-md-4 img-1">
+                <img src="<?php echo get_template_directory_uri() . '/assests/images/background-image.jpg' ?>" alt="">
+            </div>
+            <div class="col-md-4 img-2">
+                <img src="" alt="">
+            </div>
+        </div>
+    </section>
+
 </main>
 
 
