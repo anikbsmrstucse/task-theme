@@ -176,7 +176,6 @@ function anik_customizer_register($wp_customize)
 	));
 
 	/** change theme color **/
-	//add theme functionality
 	$wp_customize->add_section('anik_colors', array(
 		'title' => __('Theme Color', 'anikislam'),
 		'description' => 'You can change your color from here',
@@ -199,6 +198,16 @@ function anik_customizer_register($wp_customize)
 		'label' => 'Secondary Color',
 		'section' => 'anik_colors',
 		'setting' => 'anik_secondary_color',
+	)));
+	//white color
+	$wp_customize->add_setting('anik_white_color', array(
+		'default' => '#fff',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'anik_white_color', array(
+		'label' => 'White Color',
+		'section' => 'anik_colors',
+		'setting' => 'anik_white_color',
 	)));
 
 	/** Button text edit functionality **/
@@ -235,6 +244,26 @@ function anik_customizer_register($wp_customize)
 			'align-right' => 'Right Menu',
 		)
 	));
+
+	// change get touch image option
+	$wp_customize->add_setting('anik_img1', array(
+		'default' => get_bloginfo('template_directory') . '/assests/images/background-image.jpg',
+	));
+	$wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'anik_img1', array(
+		'label' => 'Upload Your Image',
+		'description' => 'If you upload your image you can change your image',
+		'section' => 'touch_align_option',
+		'control' => 'anik_img1',
+	)));
+	$wp_customize->add_setting('anik_img2', array(
+		'default' => get_bloginfo('template_directory') . '/assests/images/background-image.jpg',
+	));
+	$wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'anik_img2', array(
+		'label' => 'Upload Your Second Image',
+		'description' => 'If you upload your image you can change your image',
+		'section' => 'touch_align_option',
+		'control' => 'anik_img2',
+	)));
 }
 
 add_action('customize_register', 'anik_customizer_register');
@@ -248,6 +277,7 @@ function anik_theme_color_cus()
 		:root {
 			--primary-color: <?php echo get_theme_mod('anik_primary_color') ?>;
 			--secondary-color: <?php echo get_theme_mod('anik_secondary_color') ?>;
+			--white-color: <?php echo get_theme_mod('anik_white_color') ?>;
 		}
 	</style>
 <?php

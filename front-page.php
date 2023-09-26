@@ -110,7 +110,7 @@ if (get_theme_mod('anik_hero_image3', '') != '') {
 
                     </div>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum consequuntur rerum, odio optio deleniti quas unde consectetur non? Quis architecto nam quia at laudantium consequatur officiis ex harum sapiente sequi!</p>
-                    <button>Let's Start <span><i class="fa-solid fa-arrow-right"></i></span> </button>
+                    <a>Let's Start <span><i class="fa-solid fa-arrow-right"></i></span> </a>
                 </div>
             </div>
         </div>
@@ -126,14 +126,14 @@ if (get_theme_mod('anik_hero_image3', '') != '') {
 
                     </div>
                     <p class="mt-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum consequuntur rerum, odio optio deleniti quas unde consectetur non? Quis architecto nam quia at laudantium consequatur officiis ex harum sapiente sequi!</p>
-                    <button class="mt-4">Get In Touch <span><i class="fa-solid fa-arrow-right"></i></span> </button>
+                    <a class="mt-4">Get In Touch <span><i class="fa-solid fa-arrow-right"></i></span> </a>
                 </div>
             </div>
             <div class="col-md-4 img-1">
-                <img src="<?php echo get_template_directory_uri() . '/assests/images/background-image.jpg' ?>" alt="">
+                <img src="<?php echo get_theme_mod('anik_img1') ?>" alt="">
             </div>
             <div class="col-md-4 img-2">
-                <img src="" alt="">
+                <img src="<?php echo get_theme_mod('anik_img2') ?>" alt="">
             </div>
         </div>
     </section>
