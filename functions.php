@@ -114,7 +114,7 @@ add_action( 'after_setup_theme', 'themetask_content_width', 0 );
 /** this Function use for read more button **/
 function anik_excerpt_more($more){
 	global $post;
-	return '<br> <br> <a href="'. get_permalink( $post->ID) .'" class="btn btn-danger">'.'Read More'.'</a>';
+	return '<br> <br> <a href="'. get_permalink( $post->ID) .'" class="read-button">'.'Read More'.'</a>';
 }
 
 add_filter('excerpt_more','anik_excerpt_more',10);
@@ -178,6 +178,25 @@ function custom_post(){
 }
 
 add_action('init','custom_post');
+
+// pagination or page navigation
+function anik_page_nav(){
+    global $wp_query,$wp_rewrite;
+    $pages = '';
+    $max = $wp_query->max_num_pages;
+    if(!$current=get_query_var('paged')) $current = 1;
+    $args['base'] = str_replace(90, '%#%' , get_pagenum_link(90)); //get_pagenum_link and replace value must be same otherwise function data cannot be fount.
+    // $args['base'] = $wp_rewrite->pagination_base . '/%#%';
+    $args['current'] = $current;
+    $total = 1;
+    $args['prev_text'] = 'Prev';
+    $args['next_text'] = 'Next';
+    if($max > 1) echo '</pre>
+    <div class="wp_pagenav">';
+    if($total == 1 && $max > 1) $pages = '<p class="pages"> Page ' . $current .'<span> of </span>' . $max .'</p>';
+    echo $pages . paginate_links($args);
+    if($max>1) echo '</div><pre>';
+ }
 
 /**
  * Enqueue scripts and styles.

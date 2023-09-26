@@ -25,180 +25,267 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /* Start custom css design */
 
 /* This is custom css boilerplate */
-*{
-	margin: 0;
-	border: 0;
-	box-sizing: border-box;
-	font-family: 'Rubik', sans-serif;;
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
 }
 
-html,body {
-	width: 100%;
-	height: 100%;
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
 
 /* Common css area */
-:root{
-	--primary-color: #ff0090;
-	--secondary-color: #4f4c4c;
-	--white-color: #fff
+:root {
+  --primary-color: #ff0090;
+  --secondary-color: #4f4c4c;
+  --white-color: #fff;
 }
 
 /* navigation menu design */
 
 /* logo design css */
-#nav-logo img{
-	max-width: 100%;
+#nav-logo img {
+  max-width: 100%;
 }
 
 /* menu navigation bar design */
-header .row{
-	width: 100%;
-	height: 60px;
-	/* background-color: red; */
-	padding: 0 20px;
-	align-items: center;
+header .row {
+  width: 100%;
+  height: 60px;
+  /* background-color: red; */
+  padding: 0 20px;
+  align-items: center;
 }
 #menu-bar {
-	position: relative;
-	display: inline-block;
+  position: relative;
+  display: inline-block;
 }
-#menu-bar ul{
-	height: 100%;
-	display: flex;
-	list-style-type: none;
-	justify-content: space-between;
-}
-
-#menu-bar ul li a{
-	position: relative;
-	text-decoration: none;
-	color: var(--secondary-color);
-	font-size: 1.2rem;
-	color: var(--white-color);
-	background-color: var(--secondary-color);
-	padding: 10px 10px;
-	border-radius: 5px;
-	transition: all 0.3s;
-	
+#menu-bar ul {
+  height: 100%;
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
 }
 
-#menu-bar ul li a:hover{
-	color: var(--primary-color);
+#menu-bar ul li a {
+  position: relative;
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  color: var(--white-color);
+  background-color: var(--secondary-color);
+  padding: 10px 10px;
+  border-radius: 5px;
+  transition: all 0.3s;
 }
 
-/* Homepage design */
-div#area img{
-	width: 100% !important;
-    height: 100vh !important;
+#menu-bar ul li a:hover {
+  color: var(--primary-color);
 }
 
 /* footer area design */
 .footer-color {
-	background-color: var(--secondary-color);
+  background-color: var(--secondary-color);
 }
 .footer-area {
-	font-size: 1.1rem;
-	font-weight: 500;
-	color: var(--white-color);
-	padding: 15px 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--white-color);
+  padding: 15px 0;
 }
 
 .footer-area .text {
-	text-align: center;
+  text-align: center;
 }
- 
-.footer-area p{
-	margin-bottom: 0;
+
+.footer-area p {
+  margin-bottom: 0;
 }
 
 /* hero image css */
 .hero-img {
-	position: relative;
+  position: relative;
 }
 
-.title{
-	position: absolute;
-	color: var(--white-color);
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
-	z-index: 11;
+.title {
+  position: absolute;
+  color: var(--white-color);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
 }
-.title h1{
-	font-size: 4rem;
+.title h1 {
+  font-size: 4rem;
 }
 
 @media screen and (max-width: 786px) {
-	.title h1{
-		font-size: 2rem;
-	}
+  .title h1 {
+    font-size: 2rem;
+  }
 }
 
 /* content page style css */
 
-.meta-info ul{
-	padding-left: 0 !important;
-	margin-bottom: 0;
+.meta-info ul {
+  padding-left: 0 !important;
+  margin-bottom: 0;
 }
 
-.meta-info ul li a{
-	text-decoration: none;
-	cursor: pointer;
-	transition: all 0.3s;
+.meta-info ul li a {
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
-.meta-info ul li a:hover{
-	color: var(--primary-color);
+.meta-info ul li a:hover {
+  color: var(--primary-color);
 }
 
 /* blog details */
-.single-blog-details:hover h3 a{
-	color: var(--primary-color);
+.single-blog-details:hover h3 a {
+  color: var(--primary-color);
 }
-.blog-details h3 a{
-	text-decoration: none !important;
-	transition: all 0.5s;
+
+.blog-details h3 a {
+  text-decoration: none !important;
+  transition: all 0.5s;
 }
 
 /* blog thumb */
 .blog-thumb img {
-	border-radius: 5px;
-	width: 100%;
-	overflow: hidden;
+  border-radius: 5px;
+  width: 100%;
+  max-height: 500px !important;
+}
+
+/* post thumb css */
+.post-area {
+  overflow: hidden;
+}
+.post-area .post-thumb {
+  width: 100%;
+  max-height: 300px;
+  display: block;
+  transition: 0.5s;
+}
+
+.post-area:hover .post-thumb {
+  transform: scale(1.1);
+}
+
+/* card body content php */
+.card-body h3 a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  transition: 0.3s;
+}
+.post-area:hover .card-body h3 a {
+  color: var(--primary-color);
+}
+.card-body h3 {
+  transition: 0.3s;
+}
+.post-area:hover .card-body h3 {
+  margin-top: 5px;
 }
 
 /* comment area */
-.comment-area form .comment-form-comment{
-	display: flex;
-	flex-direction: column;
+.comment-area form .comment-form-comment {
+  display: flex;
+  flex-direction: column;
 }
-.comment-area form .comment-form-comment p{
-	display: inline-block;
-}
-
-.comment-area form .comment-form-comment label{
-	font-size: 1.2rem;
-	font-weight: 500;
+.comment-area form .comment-form-comment p {
+  display: inline-block;
 }
 
-.comment-area form .comment-form-comment label .required{
-	color: red;
+.comment-area form .comment-form-comment label {
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
-.comment-area form .comment-form-comment  textarea{
-	border: 2px solid var(--primary-color);
-	margin-top: 10px;
-	border-radius: 8px;
-	padding: 5px 10px;
-	height: 200px;
-	width: 100%;
-	resize: none;
+.comment-area form .comment-form-comment label .required {
+  color: red;
 }
 
-.comment-area form .form-submit input[type="submit"]{
-	background-color: var(--primary-color);
-	color: var(--white-color);
-	padding: 5px 10px;
-	border-radius: 5px;
+.comment-area form .comment-form-comment textarea {
+  border: 2px solid var(--primary-color);
+  margin-top: 10px;
+  border-radius: 8px;
+  padding: 5px 10px;
+  height: 200px;
+  width: 100%;
+  resize: none;
+}
+
+.comment-area form .form-submit input[type="submit"] {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* btn background color */
+
+.read-button {
+  padding: 10px 12px;
+  background-color: var(--secondary-color);
+  text-decoration: none;
+  color: var(--white-color);
+  transition: 0.2s;
+}
+.card-body:hover .read-button {
+  background-color: var(--primary-color);
+}
+
+/* all custom post title */
+.custom-title h4 {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 10px 10px;
+  border-radius: 5px;
+}
+.wp-title {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 10px 10px;
+  border-radius: 5px;
+}
+
+/* sidebar design */
+.wp-block-heading {
+  margin: 12px 0;
+}
+
+/* navigation desing */
+#page_nav .pages {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 10px 10px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+#page_nav .page-numbers {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 10px 10px;
+  border-radius: 45%;
+  text-decoration: none;
+  margin-right: 5px;
+}
+
+#page_nav .prev {
+	border-radius: 0;
+}
+#page_nav .next {
+	border-radius: 0;
+}
+#page_nav .page-numbers.current,
+#page_nav .page-numbers.current:hover {
+  background-color: var(--secondary-color);
 }

@@ -13,7 +13,7 @@ get_header();
 
 <main id="primary" class="site-main">
 
-	
+
 
 	<section id="body_area">
 		<div class="container">
@@ -34,7 +34,6 @@ get_header();
 
 						endwhile;
 						wp_reset_postdata();
-						the_post_navigation();
 					else :
 						// this coding is the page is not found condition
 						get_template_part('template-parts/content', 'none');
